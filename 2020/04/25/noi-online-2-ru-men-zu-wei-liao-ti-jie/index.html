@@ -406,7 +406,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    416
+                    447
                 </div>
                 
 
@@ -430,10 +430,10 @@
             <div id="articleContent">
                 <p><del>考试时想了半天才做出</del></p>
 <ul>
-<li>首先考虑宙斯<strong>最少</strong>需要施展多少个魔法才能使 Sisyphus 到达山顶所用的年数<strong>大于</strong> $t_i$那么根据贪心的思想，我们可以先将每个魔法以生效距离由长到短排序。(即能做到每个魔法使 Sisyphus 增加$a_i/v$年的时间)</li>
-<li>接下来我们就可以愉快的使用前缀和+二分来解决我们的问题了，定义一个$sum$数组，令$sum_0=l<em>1.0/v$接下来对于每个$sum_i$均执行$sum[i]=sum[i-1]+a[i]</em>1.0/v$。对于每个询问$x$，我们只需在$sum$数组二分查找<strong>第一个</strong>比$x$大的数字，此时的$i$即为所求的答案</li>
+<li>首先考虑宙斯<strong>最少</strong>需要施展多少个魔法才能使 Sisyphus 到达山顶所用的年数<strong>大于</strong> $t[i]$那么根据贪心的思想，我们可以先将每个魔法以生效距离由长到短排序。(即能做到每个魔法使 Sisyphus 增加$a[i]/v$年的时间)</li>
+<li>接下来我们就可以愉快的使用前缀和+二分来解决我们的问题了，定义一个 $sum$ 数组，令 $sum[0]=l\times1.0/v$ 接下来对于每个$sum[i]$均执行$sum[i]=sum[i-1]+a[i]\times1.0/v$。对于每个询问$x$，我们只需在$sum$数组二分查找<strong>第一个</strong>比$x$大的数字，此时的$i$即为所求的答案</li>
 </ul>
-<p>代码如下</p>
+<p>代码如下(手写二分)</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">200005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -444,7 +444,7 @@
 <span class="token punctuation">}</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"endless.in"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">,</span><span class="token constant">stdin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"endless.in"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">,</span><span class="token constant">stdin</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//文件输入输出，请自行注释</span>
     <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"endless.out"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">,</span><span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span>l<span class="token punctuation">,</span>v<span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">,</span><span class="token operator">&amp;</span>l<span class="token punctuation">,</span><span class="token operator">&amp;</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -452,23 +452,23 @@
     <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
     sum<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>l<span class="token operator">*</span><span class="token number">1.0</span><span class="token operator">/</span>v<span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-        sum<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>sum<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">+</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">1.0</span><span class="token operator">/</span>v<span class="token punctuation">;</span>
+        sum<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>sum<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">+</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">1.0</span><span class="token operator">/</span>v<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//前缀和</span>
     <span class="token keyword">int</span> q<span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>q<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">int</span> x<span class="token punctuation">;</span>
         <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>sum<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span>x<span class="token operator">*</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sum<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span>x<span class="token operator">*</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//特判</span>
             <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">continue</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>sum<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token punctuation">(</span>x<span class="token operator">*</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sum<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token punctuation">(</span>x<span class="token operator">*</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//特判</span>
             <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"-1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">continue</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">int</span> l<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token operator">=</span>n<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token punctuation">)</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//手写二分</span>
         <span class="token punctuation">{</span>
             <span class="token keyword">int</span> mid<span class="token operator">=</span><span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token operator">*</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token operator">>=</span>sum<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>l<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
@@ -679,7 +679,7 @@
                         
                             考试时想了半天才做出
 
-首先考虑宙斯最少需要施展多少个魔法才能使 Sisyphus 到达山顶所用的年数大于 $t_i$那么根据贪心的思想，我们可以先将每个魔法以生效距离由长到短排序。(即能做到每个魔法使 Sisyphus 增加$a_i/v$
+首先考虑宙斯最少需要施展多少个魔法才能使 Sisyphus 到达山顶所用的年数大于 $t[i]$那么根据贪心的思想，我们可以先将每个魔法以生效距离由长到短排序。(即能做到每个魔法使 Sisyphus 增加$a[i]/
                         
                     </div>
                     <div class="publish-info">
@@ -934,6 +934,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -948,7 +955,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.9k</span>&nbsp;字
+                class="white-color">4k</span>&nbsp;字
             
             
             
