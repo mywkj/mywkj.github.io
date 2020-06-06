@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mywkj.github.io/"/>
-  <updated>2020-04-25T13:38:05.752Z</updated>
+  <updated>2020-06-06T07:49:34.830Z</updated>
   <id>http://mywkj.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CF135A Replacement题解</title>
+    <link href="http://mywkj.github.io/2020/06/06/cf135a-replacement-ti-jie/"/>
+    <id>http://mywkj.github.io/2020/06/06/cf135a-replacement-ti-jie/</id>
+    <published>2020-06-06T07:36:29.000Z</published>
+    <updated>2020-06-06T07:49:34.830Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;题目还是比较简单的，不难就能想到思路。我们可以将原数组排序，然后在将数组中最大值替换为1。&lt;/p&gt;
+&lt;p&gt;就像这样:&lt;/p&gt;
+&lt;pre class=&quot; language-cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="模拟" scheme="http://mywkj.github.io/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+      <category term="排序" scheme="http://mywkj.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>[NOI Online #2 入门组]未了 题解</title>

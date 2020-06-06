@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CF1303A题解, wkj&#39;s blog">
+    <meta name="keywords" content="CF135A Replacement题解, wkj&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CF1303A题解 | wkj&#39;s blog</title>
+    <title>CF135A Replacement题解 | wkj&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -246,12 +246,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CF1303A题解</h1>
+                    <h1 class="description center-align post-title">CF135A Replacement题解</h1>
                 </div>
             </div>
         </div>
@@ -368,12 +368,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%A2%98%E8%A7%A3/">
-                                <span class="chip bg-color">题解</span>
+                            <a href="/tags/%E6%A8%A1%E6%8B%9F/">
+                                <span class="chip bg-color">模拟</span>
                             </a>
                         
-                            <a href="/tags/%E7%BA%BF%E6%80%A7%E6%89%AB%E6%8F%8F/">
-                                <span class="chip bg-color">线性扫描</span>
+                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">排序</span>
                             </a>
                         
                     </div>
@@ -388,21 +388,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-03
+                    2020-06-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-10
+                    2020-06-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    214
+                    289
                 </div>
                 
 
@@ -424,33 +424,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>原题链接</strong>：<a href="https://codeforces.com/problemset/problem/1303/A" target="_blank" rel="noopener">here</a></p>
-<p><del><em>这道题其实很水</em></del>,这道题其实只要$O(n)$的<strong>线性扫描</strong>一遍。每次在遇到一个$1$时，就去比对<strong>前一个出现的</strong>$1$与<strong>目前</strong>$1$的位置，删除中间所有的$0$就可以了。</p>
-<p>代码如下:</p>
+                <p>题目还是比较简单的，不难就能想到思路。我们可以将原数组排序，然后在将数组中最大值替换为1。</p>
+<p>就像这样:</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">char</span> a<span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">100005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> T<span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>T<span class="token operator">--</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> len<span class="token operator">=</span><span class="token function">strlen</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> pre<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//记录前一个1的位置，初值为0</span>
-        <span class="token keyword">int</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>len<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-               <span class="token keyword">if</span><span class="token punctuation">(</span>pre<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>ans<span class="token operator">+</span><span class="token operator">=</span>i<span class="token operator">-</span>pre<span class="token number">-1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//累加答案,同时特判第一个1的位置</span>
-               pre<span class="token operator">=</span>i<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//迭代</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span> </code></pre>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+      <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> 
+    <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span> </code></pre>
+<p><del>结果，你会惊喜的发现，你$\mathtt{WA}$了</del></p>
+<p>比如这组数据</p>
+<pre class=" language-php"><code class="language-php">input<span class="token punctuation">:</span>
+<span class="token number">3</span>
+<span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span>
+user output<span class="token punctuation">:</span>
+<span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span>
+test output<span class="token punctuation">:</span>
+<span class="token number">1</span> <span class="token number">1</span> <span class="token number">2</span></code></pre>
+<p>题目中要求我们不能用本身替换自己，所以我们稍作修改便能$\mathtt{AC}$</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">100005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+      <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>a<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span> 
+    <span class="token keyword">else</span> a<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span> </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -494,7 +510,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://mywkj.github.io/2020/03/03/cf1303a-ti-jie/">http://mywkj.github.io/2020/03/03/cf1303a-ti-jie/</a>
+                    <a href="http://mywkj.github.io/2020/06/06/cf135a-replacement-ti-jie/">http://mywkj.github.io/2020/06/06/cf135a-replacement-ti-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -532,12 +548,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%A2%98%E8%A7%A3/">
-                                    <span class="chip bg-color">题解</span>
+                                <a href="/tags/%E6%A8%A1%E6%8B%9F/">
+                                    <span class="chip bg-color">模拟</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BA%BF%E6%80%A7%E6%89%AB%E6%8F%8F/">
-                                    <span class="chip bg-color">线性扫描</span>
+                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">排序</span>
                                 </a>
                             
                         </div>
@@ -582,7 +598,7 @@
         repo: 'hexo_gittalk',
         owner: 'mywkj',
         admin: "mywkj",
-        id: '2020-03-03T14-06-26',
+        id: '2020-06-06T15-36-29',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -628,31 +644,35 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/05/cf1253a-ti-jie/">
+                <a href="/2020/06/06/cf135a-replacement-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="CF1253A题解">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="CF135A Replacement题解">
                         
-                        <span class="card-title">CF1253A题解</span>
+                        <span class="card-title">CF135A Replacement题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            原题链接:here
-本题只要照题意模拟一下即可。把b序列与a序列相减，观察得到的c序列是否为
-$$\begin{matrix}\underbrace{00\cdots0}\ x个0\end{matrix} \begin{matrix}\un
+                            题目还是比较简单的，不难就能想到思路。我们可以将原数组排序，然后在将数组中最大值替换为1。
+就像这样:
+#include&lt;bits/stdc++.h>
+using namespace std;
+int a[100005];
+int m
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -661,15 +681,16 @@ $$\begin{matrix}\underbrace{00\cdots0}\ x个0\end{matrix} \begin{matrix}\un
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%A2%98%E8%A7%A3/">
-                        <span class="chip bg-color">题解</span>
-                    </a>
-                    
                     <a href="/tags/%E6%A8%A1%E6%8B%9F/">
                         <span class="chip bg-color">模拟</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">排序</span>
                     </a>
                     
                 </div>
@@ -683,26 +704,26 @@ $$\begin{matrix}\underbrace{00\cdots0}\ x个0\end{matrix} \begin{matrix}\un
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/02/codeforces-25a-ti-jie/">
+                <a href="/2020/04/25/noi-online-2-ru-men-zu-wei-liao-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="CodeForces 25A题解">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="[NOI Online #2 入门组]未了 题解">
                         
-                        <span class="card-title">CodeForces 25A题解</span>
+                        <span class="card-title">[NOI Online #2 入门组]未了 题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            原题链接:这里一看到这道题。找规律？一看样例，我靠这哪有规律，其实这道题目只是想让我们在一堆偶数
-中找一个奇数或是在一堆奇数中找一个偶数。再看数据范围 $ 3&lt;=n&lt;=100 $，范围太小了吧。
-做法一:直接暴力模拟#inclu
+                            考试时想了半天才做出
+
+首先考虑宙斯最少需要施展多少个魔法才能使 Sisyphus 到达山顶所用的年数大于 $t[i]$那么根据贪心的思想，我们可以先将每个魔法以生效距离由长到短排序。(即能做到每个魔法使 Sisyphus 增加$a[i]/
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
                             </span>
                         <span class="publish-author">
                             
@@ -715,12 +736,16 @@ $$\begin{matrix}\underbrace{00\cdots0}\ x个0\end{matrix} \begin{matrix}\un
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%A2%98%E8%A7%A3/">
-                        <span class="chip bg-color">题解</span>
+                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                        <span class="chip bg-color">贪心</span>
                     </a>
                     
-                    <a href="/tags/%E5%A5%87%E5%81%B6%E6%80%A7/">
-                        <span class="chip bg-color">奇偶性</span>
+                    <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
+                        <span class="chip bg-color">前缀和</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%8C%E5%88%86/">
+                        <span class="chip bg-color">二分</span>
                     </a>
                     
                 </div>
