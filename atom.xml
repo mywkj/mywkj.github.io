@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mywkj.github.io/"/>
-  <updated>2020-06-06T07:55:27.197Z</updated>
+  <updated>2020-06-06T10:01:08.297Z</updated>
   <id>http://mywkj.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CF237A Free Cash题解</title>
+    <link href="http://mywkj.github.io/2020/06/06/cf237a-free-cash-ti-jie/"/>
+    <id>http://mywkj.github.io/2020/06/06/cf237a-free-cash-ti-jie/</id>
+    <published>2020-06-06T09:45:39.000Z</published>
+    <updated>2020-06-06T10:01:08.297Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;题目还是比较简单的。题意如下:现在给定$\mathtt{n}$个二元组$\mathtt{(x,y)}$,求出现次数最多的二元组$\mathtt{(x,y)}$的出现次数。&lt;/p&gt;
+&lt;p&gt;那么我们其实只要将每个二元组映射成一个数字，去检测该数字出现的次数即可。&lt;/p&gt;
+&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="map" scheme="http://mywkj.github.io/tags/map/"/>
+    
+  </entry>
   
   <entry>
     <title>CF135A Replacement题解</title>
