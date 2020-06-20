@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mywkj.github.io/"/>
-  <updated>2020-06-20T08:42:45.690Z</updated>
+  <updated>2020-06-20T09:30:33.876Z</updated>
   <id>http://mywkj.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Color the Fence题解</title>
+    <link href="http://mywkj.github.io/2020/06/20/color-the-fence-ti-jie/"/>
+    <id>http://mywkj.github.io/2020/06/20/color-the-fence-ti-jie/</id>
+    <published>2020-06-20T09:17:22.000Z</published>
+    <updated>2020-06-20T09:30:33.876Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;贪心的性质还是比较明显的，题目中要求我们求得最大的数字，故&lt;strong&gt;我们应先保证数字的长度最大，紧接着，我们要保证数字的高位越大越好&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;那么贪心的策略就出来了，首先找到 $a[1]$
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="贪心" scheme="http://mywkj.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
   
   <entry>
     <title>CF250A Paper Work题解</title>
