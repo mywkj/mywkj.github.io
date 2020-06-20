@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mywkj.github.io/"/>
-  <updated>2020-06-06T10:01:08.297Z</updated>
+  <updated>2020-06-20T08:42:45.690Z</updated>
   <id>http://mywkj.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CF250A Paper Work题解</title>
+    <link href="http://mywkj.github.io/2020/06/20/cf250a-paper-work-ti-jie/"/>
+    <id>http://mywkj.github.io/2020/06/20/cf250a-paper-work-ti-jie/</id>
+    <published>2020-06-20T08:26:09.000Z</published>
+    <updated>2020-06-20T08:42:45.690Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;题目是很简单的，但我却被坑了好几次&lt;del&gt;可能是我太蒟蒻了&lt;/del&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先分析一下思路，在满足每一组内至多有2个负数时，我们肯定要尽可能使每一组内的元素尽可能多。那么策略就出来了。&lt;/li&gt;
+&lt;li&gt;然而我们要注意一下，翻译中并没有提到&lt;str
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="模拟" scheme="http://mywkj.github.io/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+      <category term="贪心" scheme="http://mywkj.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
   
   <entry>
     <title>CF237A Free Cash题解</title>
