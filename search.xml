@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>English日记</title>
+      <link href="/2020/07/04/english-ri-ji/"/>
+      <url>/2020/07/04/english-ri-ji/</url>
+      
+        <content type="html"><![CDATA[<p>2020/7/4 Cloudy Sat.</p><p>  Today was the first day of the summer vacation. The weather wasn’t very good and it rained a little. Maybe I should make a plan of my summer vacation. But I didn’t want to do anything  in a cloudy day. I felt a little bit hot, although it was raining outside. I hope to have a meaningful holiday and do things what I like at the same time.</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> English </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Color the Fence题解</title>
       <link href="/2020/06/20/color-the-fence-ti-jie/"/>
       <url>/2020/06/20/color-the-fence-ti-jie/</url>

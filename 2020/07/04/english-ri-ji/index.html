@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CF250A Paper Work题解, wkj&#39;s blog">
+    <meta name="keywords" content="English日记, wkj&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CF250A Paper Work题解 | wkj&#39;s blog</title>
+    <title>English日记 | wkj&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -246,12 +246,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CF250A Paper Work题解</h1>
+                    <h1 class="description center-align post-title">English日记</h1>
                 </div>
             </div>
         </div>
@@ -368,12 +368,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%A8%A1%E6%8B%9F/">
-                                <span class="chip bg-color">模拟</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                                <span class="chip bg-color">贪心</span>
+                            <a href="/tags/English/">
+                                <span class="chip bg-color">English</span>
                             </a>
                         
                     </div>
@@ -388,21 +384,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-20
+                    2020-07-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-20
+                    2020-07-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    343
+                    127
                 </div>
                 
 
@@ -424,54 +420,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>题目是很简单的，但我却被坑了好几次<del>可能是我太蒟蒻了</del></p>
-<ul>
-<li>首先分析一下思路，在满足每一组内至多有2个负数时，我们肯定要尽可能使每一组内的元素尽可能多。那么策略就出来了。</li>
-<li>然而我们要注意一下，翻译中并没有提到<strong>每一组内的元素必须连续</strong>，但根据题意，我们要满足<strong>每一组内的元素必须连续</strong>，<del>我就是因为这个错了一次，但估计大佬们都没有这种错误</del></li>
-</ul>
-<p>核心代码如下:</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>fu<span class="token operator">++</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span> zheng<span class="token operator">++</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>fu<span class="token operator">==</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    ans<span class="token punctuation">[</span><span class="token operator">++</span>m<span class="token punctuation">]</span><span class="token operator">=</span>zheng<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span>
-    fu<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    zheng<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>但还是要注意一些特殊情况，如</p>
-<pre class=" language-php"><code class="language-php">input<span class="token punctuation">:</span>
-<span class="token number">1</span>
-<span class="token number">0</span>
-output<span class="token punctuation">:</span>
-<span class="token number">1</span>
-<span class="token number">1</span></code></pre>
-<p>完整代码如下:</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">int</span> zheng<span class="token punctuation">,</span>fu<span class="token punctuation">;</span>
-<span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> ans<span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> m<span class="token punctuation">;</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>fu<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> zheng<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>fu<span class="token operator">==</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            ans<span class="token punctuation">[</span><span class="token operator">++</span>m<span class="token punctuation">]</span><span class="token operator">=</span>zheng<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span>
-            fu<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-            zheng<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>fu<span class="token operator">==</span><span class="token number">1</span><span class="token operator">||</span>fu<span class="token operator">==</span><span class="token number">2</span><span class="token operator">||</span>zheng<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>ans<span class="token punctuation">[</span><span class="token operator">++</span>m<span class="token punctuation">]</span><span class="token operator">=</span>fu<span class="token operator">+</span>zheng<span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span>ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span> </code></pre>
+                <p>2020/7/4 Cloudy Sat.</p>
+<p>  Today was the first day of the summer vacation. The weather wasn’t very good and it rained a little. Maybe I should make a plan of my summer vacation. But I didn’t want to do anything  in a cloudy day. I felt a little bit hot, although it was raining outside. I hope to have a meaningful holiday and do things what I like at the same time.</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -515,7 +465,7 @@ output<span class="token punctuation">:</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://mywkj.github.io/2020/06/20/cf250a-paper-work-ti-jie/">http://mywkj.github.io/2020/06/20/cf250a-paper-work-ti-jie/</a>
+                    <a href="http://mywkj.github.io/2020/07/04/english-ri-ji/">http://mywkj.github.io/2020/07/04/english-ri-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,12 +503,8 @@ output<span class="token punctuation">:</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%A8%A1%E6%8B%9F/">
-                                    <span class="chip bg-color">模拟</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                                    <span class="chip bg-color">贪心</span>
+                                <a href="/tags/English/">
+                                    <span class="chip bg-color">English</span>
                                 </a>
                             
                         </div>
@@ -603,7 +549,7 @@ output<span class="token punctuation">:</span>
         repo: 'hexo_gittalk',
         owner: 'mywkj',
         admin: "mywkj",
-        id: '2020-06-20T16-26-09',
+        id: '2020-07-04T09-16-21',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -649,9 +595,57 @@ output<span class="token punctuation">:</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/07/04/english-ri-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="English日记">
+                        
+                        <span class="card-title">English日记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2020/7/4 Cloudy Sat.
+  Today was the first day of the summer vacation. The weather wasn’t very good and it rained a litt
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            wkj
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/English/">
+                        <span class="chip bg-color">English</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/06/20/color-the-fence-ti-jie/">
                     <div class="card-image">
@@ -672,9 +666,9 @@ output<span class="token punctuation">:</span>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -688,52 +682,6 @@ output<span class="token punctuation">:</span>
                     
                     <a href="/tags/%E8%B4%AA%E5%BF%83/">
                         <span class="chip bg-color">贪心</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/06/06/cf237a-free-cash-ti-jie/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="CF237A Free Cash题解">
-                        
-                        <span class="card-title">CF237A Free Cash题解</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            题目还是比较简单的。题意如下:现在给定$\mathtt{n}$个二元组$\mathtt{(x,y)}$,求出现次数最多的二元组$\mathtt{(x,y)}$的出现次数。
-那么我们其实只要将每个二元组映射成一个数字，去检测该数字出现的次数即
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            wkj
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/map/">
-                        <span class="chip bg-color">map</span>
                     </a>
                     
                 </div>
