@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>begin</title>
+      <link href="/2021/01/29/begin/"/>
+      <url>/2021/01/29/begin/</url>
+      
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="420" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1436910205&amp;auto=1&amp;height=66"></iframe><p>这个博客又一次新开了！</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> new </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>English日记</title>
       <link href="/2020/07/04/english-ri-ji/"/>
       <url>/2020/07/04/english-ri-ji/</url>
